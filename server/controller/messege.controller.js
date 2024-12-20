@@ -18,9 +18,9 @@ export async function getusers(req,res){
 
         // Find all users except the current one
         const users = await user.find({ _id: { $ne: currentId } });
-
+        console.log(users)
         // Respond with the list of users
-        return res.status(200).json(users);
+        return res.status(200).json({users});
     } catch (error) {
         console.error(error);
         return res.status(500).json({ msg: 'Something went wrong' });
