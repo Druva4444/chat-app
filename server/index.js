@@ -5,9 +5,9 @@ import  cookieParser from 'cookie-parser'
 import router from  './router/auth.router.js'
 import msgrouter from './router/messege.router.js'
 import cors from "cors"
-
+import { app,server,io } from "./lib/socket.js";
 dotenv.config()
-const app= express();
+
 connect()
 app.use(cors({
     origin:"http://localhost:5173",
@@ -18,4 +18,4 @@ app.use(cookieParser())
 app.use('/api/auth',router)
 app.use('/api/messege',msgrouter)
 const port = process.env.PORT
-app.listen(port,()=>{console.log('app started')})
+server.listen(port,()=>{console.log('app started')})

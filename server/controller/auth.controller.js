@@ -1,4 +1,5 @@
 import user from '../models/user.model.js'
+
 export async function signup(req,res){
     const {name,email,password} = req.body;
     try {
